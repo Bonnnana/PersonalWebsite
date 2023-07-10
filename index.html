@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="forAll.css">
+    <script src="https://kit.fontawesome.com/6df204bf81.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header>
+    <div class="orientation"></div>
+    <ul id="sidemenu">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+    </ul>
+    <i class="fa-solid fa-bars " onclick="openmenu()"></i>
+</header>
+    <div id="header">
+        <div class="orientation"></div>
+        <div class="container">
+
+            <div class="header-text ">
+                <h1 class="hidden">HELLO,<br> MY NAME IS<br> <span data-text="BOJANA ANDONOVA" >BOJANA ANDONOVA</span></h1>
+            </div>
+
+        </div>
+    </div>
+
+    <!-------------- About Me ------------->
+
+    <div id="about">
+        <div class="about-container">
+            <h1 class="sub-title">About Me</h1>
+            <div class="info-list">
+                <div>
+                    <h3>I LIVE IN</h3>
+                    <p>Sveti Nikole, <br>North Macedonia</p>
+                </div>
+                <div>
+                    <h3>STUDYING</h3>
+                    <p>SOFTWARE ENGINEERING, <br> FACULTY OF COMPUTER SCIENCE & ENGINEERING <span><br>at Ss. Cyril and Methodius University in Skopje </span></p>
+                </div>
+                <div>
+                    <h3>PASSION</h3>
+                    <p> Each accomplishment fuels my motivation and ambition, propelling me towards further growth and success.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<!-------------- Skills ------------->
+
+
+    <div id="skills">
+        <div class="about-container">
+            <h1 class="sub-title">My Skills</h1>
+            <div class="sections">
+                <section class="bar">
+                 <ul class="skills">
+                    <li><h4>HTML</h4>
+                        <span class="skill-bar"><span class="html"></span></span>
+                    </li>
+                     <li><h4>CSS</h4>
+                         <span class="skill-bar"><span class="css"></span></span>
+                     </li>
+                     <li><h4>C++</h4>
+                         <span class="skill-bar"><span class="cplus"></span></span>
+                     </li>
+                     <li><h4>C</h4>
+                         <span class="skill-bar"><span class="c"></span></span>
+                     </li>
+                 </ul>
+                 </section>
+                <section id="image">
+                    <div class="image">
+                    <img src="images/image1.png" alt="image">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+<!--------------Hobbies ------------->
+
+    <div id="hobbies">
+        <div class="about-container">
+            <h1 class="sub-title">Things I Love</h1>
+        <div class="hobbies-grid">
+            <div class="div">
+                <img src="images/image2.jpg" alt="image">
+                <div class="layer">
+                    <h3>Programming</h3>
+                </div>
+            </div>
+            <div class="div">
+                <img src="images/image3.jpg" alt="image">
+                <div class="layer">
+                    <h3>Reading</h3>
+                </div>
+            </div>
+            <div class="div">
+                <img src="images/image4.jpg" alt="image">
+                <div class="layer">
+                    <h3>Drawing</h3>
+                </div>
+            </div>
+            <div class="div">
+                <img src="images/image5.jpg" alt="image">
+                <div class="layer">
+                    <h3>Travelling</h3>
+                </div>
+            </div>
+        </div>
+            <div class="description">These are just some of the things that make me feel alive</div>
+        </div>
+    </div>
+
+<!--------------Contact ------------->
+    <div id="contact">
+        <div class="about-container">
+            <h1 class="sub-title">Contact Me</h1>
+            <div class="row">
+
+                <div class="contact-left">
+                    <label name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="button">Submit</button>
+                    </label>
+
+
+                </div>
+                <div class="contact-right">
+                    <p><i class="fa-regular fa-envelope"></i>bojana.andonova03@gmail.com</p>
+                    <p><i class="fa-solid fa-mobile-screen-button"></i>+389 70250146</p>
+                </div>
+            </div>
+        <div class="footer">
+            <img src="images/footerLeft.png" alt="image">
+            <div class="copyright">Copyright <i class="fa-regular fa-copyright"></i> Bojana</div>
+            <img src="images/footer.png" alt="image">
+        </div>
+        </div>
+
+    </div>
+
+
+<script>
+
+    let sidemenu=document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right="0";
+
+    }
+    function closemenu(){
+        sidemenu.style.right="-200px";
+
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwZm7Ej_wa0s8yhFStUzLCI0v3n5vsGSpYxpltEHewoUAzLYja21icuPNAtJpa5oCoLbw/exec';
+    const form = document.getElementById('submit-to-google-sheet');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
+    });
+</script>
+
+
+</body>
+</html>
