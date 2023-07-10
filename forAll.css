@@ -519,7 +519,7 @@ header .fa-solid{
         padding-top: 50%;
 
     }
-    #about p {
+    #about > div > div > div:nth-child(n) > p{
         font-size:16px;
         font-family:'Courier', monospace;
     }
